@@ -14,6 +14,12 @@ An online E-commerce web application built using Spring Boot, Thymeleaf, and MyS
 
 ---
 
+## UML Diagram
+
+<img width="2737" height="3841" alt="Untitled diagram _ Mermaid Chart-2025-07-29-055308" src="https://github.com/user-attachments/assets/fbcd83d4-edb2-42a5-b480-00645e733516" />
+
+---
+
 ## 🧰 Tools & Technologies Used
 | Technology            | Purpose                                 |
 |-----------------------|-----------------------------------------|
