@@ -29,18 +29,8 @@ An online E-commerce web application built using Spring Boot, Thymeleaf, and MyS
 ---
 
 ## 📁 Project Structure
-src
-├── main
-│ ├── java/com.ecommerce.E_commerce
-│ │ ├── config # Security and Web config classes
-│ │ ├── controller # REST/Web controllers
-│ │ ├── entity # JPA entities for DB tables
-│ │ ├── repository # Spring Data JPA Repositories
-│ │ └── service # Business logic classes
-│ └── resources
-│ ├── static # CSS, JS, images
-│ ├── templates # Thymeleaf HTML files
-│ └── application.properties # App configuration
+<img width="488" height="391" alt="image" src="https://github.com/user-attachments/assets/c20772c5-1786-40e7-a06d-bbb83f7bfbe7" />
+
 
 
 
