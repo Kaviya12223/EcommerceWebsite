@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Order Successful!</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .success-container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: #e6ffe6; /* Light green background */
+        border: 1px solid #4CAF50; /* Green border */
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .success-container h2 {
+        color: #4CAF50; /* Green color */
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+    .success-container p {
+        font-size: 1.2em;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    .success-container .order-id {
+        font-weight: bold;
+        color: #007bff;
+        font-size: 1.3em;
+    }
+    .success-container .total-amount {
+        font-weight: bold;
+        color: #dc3545;
+        font-size: 1.3em;
+    }
+    .success-container a {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        transition: background-color 0.2s ease;
+    }
+    .success-container a:hover {
+        background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="success-container">
+  <h2>Order Successful! 🎉</h2>
+  <p>Thank you for your purchase!</p>
+  <p>Your Order ID: <span class="order-id" th:text="${order.id}"></span></p>
+  <p>Total Paid: <span class="total-amount" th:text="'₹ ' + ${#numbers.formatDecimal(order.totalAmount, 0, 'COMMA', 2, 'POINT')}"></span></p>
+  <p>Status: <span th:text="${order.status}"></span></p>
+
+  <a th:href="@{/home}">Continue Shopping</a>
+</div>
+</body>
+</html>

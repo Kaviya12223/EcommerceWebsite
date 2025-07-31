@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Your Cart</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <style>
+    .error-message {
+        color: #dc3545; /* Red color for errors */
+        background-color: #f8d7da; /* Light red background */
+        border: 1px solid #f5c6cb;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<h2>Your Shopping Cart</h2>
+
+<div th:if="${errorMessage}" class="error-message">
+  <p th:text="${errorMessage}"></p>
+</div>
+
+<div th:if="${#lists.isEmpty(items)}" class="empty-message">
+  <p>Your cart is empty.</p>
+</div>
+
+<div th:if="${!#lists.isEmpty(items)}">
+  <table>
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+      <td><img th:src="@{'/images/' + ${item.product.imageName}}" width="80"/></td>
+      <td>
+        <b th:text="${item.product.name}"></b><br>
+        <p th:text="${item.product.description}"></p>
+      </td>
+      <td th:text="${item.quantity}"></td>
+      <td th:text="${item.product.price}"></td>
+      <td th:text="${#numbers.formatDecimal(item.product.price * item.quantity, 0, 'COMMA', 2, 'POINT')}"></td> <td>
+      <form th:action="@{'/cart/increase/' + ${item.product.id}}" method="post" style="display:inline;">
+        <button type="submit">+</button>
+      </form>
+      <form th:action="@{'/cart/decrease/' + ${item.product.id}}" method="post" style="display:inline;">
+        <button type="submit">-</button>
+      </form>
+      <form th:action="@{'/cart/remove/' + ${item.product.id}}" method="post" style="display:inline;">
+        <button type="submit">Remove</button>
+      </form>
+    </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="4" style="text-align: right; font-weight: bold;">Grand Total:</td>
+      <td th:text="${#numbers.formatDecimal(cartTotal, 0, 'COMMA', 2, 'POINT')}" style="font-weight: bold;"></td>
+      <td></td> </tr>
+    </tfoot>
+  </table>
+
+  <div style="text-align: right; margin-top: 20px;">
+    <form th:action="@{/cart/proceedToBuy}" method="post">
+      <button type="submit" style="padding: 10px 20px; font-size: 1.1em; background-color: #28a745;">Proceed to Buy</button>
+    </form>
+  </div>
+</div>
+
+<a href="/home" class="continue-shopping">Continue Shopping</a>
+</body>
+</html>

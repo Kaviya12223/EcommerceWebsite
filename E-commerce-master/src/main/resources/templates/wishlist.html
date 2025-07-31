@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Your Wishlist</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" /> </head>
+<body>
+<h2>Your Wishlist</h2>
+
+<div th:if="${#lists.isEmpty(items)}" class="empty-message"> <p>Your wishlist is empty.</p>
+</div>
+
+<div th:if="${!#lists.isEmpty(items)}">
+  <table>
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+      <td><img th:src="@{'/images/' + ${item.product.imageName}}" width="80"/></td>
+      <td th:text="${item.product.name}"></td>
+      <td th:text="${item.product.description}"></td>
+      <td th:text="${item.product.price}"></td>
+      <td>
+        <form th:action="@{'/wishlist/remove/' + ${item.product.id}}" method="post" style="display:inline;">
+          <button type="submit">Remove</button>
+        </form>
+        <form th:action="@{'/cart/add/' + ${item.product.id}}" method="post" style="display:inline;">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<a href="/home" class="continue-shopping">Continue Shopping</a> </body>
+</html>

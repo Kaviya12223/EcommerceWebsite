@@ -1,0 +1,257 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* General Table Styling for Cart and Wishlist */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+/* Image in tables */
+table img {
+    max-width: 80px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Buttons in tables */
+table button {
+    background-color: #28a745; /* Green for add/increase */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin: 2px;
+}
+
+table button:hover {
+    opacity: 0.9;
+}
+
+/* Specific button styles for decrease/remove */
+table button[type="submit"]:last-child {
+    background-color: #dc3545; /* Red for remove */
+}
+
+table button[type="submit"]:nth-last-child(2) { /* Targeting decrease button if it's the second from last */
+     background-color: #ffc107; /* Yellow/Orange for decrease */
+     color: #333;
+}
+
+/* Empty cart/wishlist message */
+.empty-message {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Continue Shopping link */
+.continue-shopping {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+/* Product grid for home page */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: contain; /* Ensures the image fits without cropping */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.product-card p {
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1; /* Allows description to take available space */
+}
+
+.product-card strong {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+    display: block;
+}
+
+.product-card form {
+    margin-top: 10px;
+}
+
+.product-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+
+.product-card button.delete-btn { /* Specific class for delete button */
+    background-color: #dc3545;
+}
+
+.product-card button.delete-btn:hover {
+    background-color: #c82333;
+}
+/* General Form Styling (add or ensure this is present and unified in style.css) */
+.form-container { /* A new class to wrap your forms for better centering/styling */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Limit form width */
+    margin: 50px auto; /* Center the form horizontally and add top margin */
+    text-align: center; /* Center content within the form container */
+}
+
+.form-container h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.form-group { /* For better spacing of labels and inputs */
+    margin-bottom: 15px;
+    text-align: left; /* Align labels/inputs to the left within the group */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-container p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.form-container p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-container p a:hover {
+    text-decoration: underline;
+}

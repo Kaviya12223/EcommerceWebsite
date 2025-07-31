@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .payment-container h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+        .payment-details {
+            margin-top: 20px;
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: left;
+        }
+        .payment-details p {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+        .payment-details strong {
+            color: #007bff;
+        }
+        .payment-button {
+            background-color: #28a745; /* Green for pay button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-top: 30px;
+            transition: background-color 0.2s ease;
+        }
+        .payment-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="payment-container">
+    <h2>Simulated Payment Gateway</h2>
+    <p>This is a placeholder for a real payment gateway.</p>
+
+    <div class="payment-details">
+        <p>Order ID: <strong><span th:text="${order.id}"></span></strong></p>
+        <p>Total Amount: <strong>₹ <span th:text="${#numbers.formatDecimal(order.totalAmount, 0, 'COMMA', 2, 'POINT')}">0.00</span></strong></p>
+        <p>Items:</p>
+        <ul>
+            <li th:each="item : ${order.orderItems}">
+                <span th:text="${item.product.name}">Product Name</span> x <span th:text="${item.quantity}"></span>
+                (₹ <span th:text="${#numbers.formatDecimal(item.priceAtOrder, 0, 'COMMA', 2, 'POINT')}"></span> each)
+            </li>
+        </ul>
+    </div>
+
+    <form th:action="@{'/payment/process/' + ${order.id}}" method="post">
+        <button type="submit" class="payment-button">Confirm Payment (Simulated)</button>
+    </form>
+</div>
+</body>
+</html>
