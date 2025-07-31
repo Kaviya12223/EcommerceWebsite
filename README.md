@@ -1,4 +1,3 @@
-# EcommerceWebsite
 # 🛒 E-commerce Website (Spring Boot)
 
 An online E-commerce web application built using Spring Boot, Thymeleaf, and MySQL. This project provides functionality for managing products, categories, and user authentication with a secure interface.
